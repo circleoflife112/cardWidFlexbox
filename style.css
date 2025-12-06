@@ -29,9 +29,13 @@ body {
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 100%;
   width: 100%;
-  margin: 0 auto; /* 중앙 정렬 */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* 중앙 정렬 */
 }
 
 h1 {
@@ -58,9 +62,12 @@ h1 {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Flexbox 핵심: 미디어쿼리 없이 반응형 컬럼 수를 제어 */
-  flex: 1 1 var(--card-min-width); /* grow, shrink, basis (기본 너비 300px) */
-  max-width: var(--card-max-width); /* 카드의 최대 너비 400px */
-  min-width: 280px; /* 좁은 화면에서 카드가 너무 작아지는 것 방지 */
+  flex: 1 1 var(--card-min-width);
+  /* grow, shrink, basis (기본 너비 300px) */
+  max-width: var(--card-max-width);
+  /* 카드의 최대 너비 400px */
+  min-width: var(--card-min-width);
+  /* 좁은 화면에서 카드가 너무 작아지는 것 방지 */
 }
 
 /* 카드 호버 효과 */
