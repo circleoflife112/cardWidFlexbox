@@ -1,0 +1,126 @@
+/* 기본 설정 및 색상 변수 */
+:root {
+  --bg-color: #f5f5f5;
+  --card-bg-color: white;
+  --button-color: #4967d8;
+  --button-hover-color: #3651b8;
+  --text-title-color: #333;
+  --text-description-color: #666;
+  --gap: 24px;
+  --card-min-width: 300px;
+  --card-max-width: 400px;
+  --image-height: 200px;
+}
+
+/* 박스 모델 초기화 및 기본 폰트 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  display: flex; /* 전체 레이아웃 중앙 정렬 */
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--gap);
+}
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-title-color);
+  margin-bottom: var(--gap);
+  font-size: 2.2em;
+}
+
+/* 카드 그리드 컨테이너 */
+.card-grid {
+  display: flex;
+  max-width: 1200px;
+  flex-wrap: wrap; /* 컨테이너 너비에 따라 자동 줄 바꿈 */
+  gap: var(--gap); /* 카드 간격 */
+  justify-content: center; /* 카드 중앙 정렬 */
+}
+
+/* 각 카드 스타일 */
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Flexbox 핵심: 미디어쿼리 없이 반응형 컬럼 수를 제어 */
+  flex: 1 1 var(--card-min-width); /* grow, shrink, basis (기본 너비 300px) */
+  max-width: var(--card-max-width); /* 카드의 최대 너비 400px */
+  min-width: 280px; /* 좁은 화면에서 카드가 너무 작아지는 것 방지 */
+}
+
+/* 카드 호버 효과 */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 이미지 영역 */
+.card-image-placeholder {
+  width: 100%;
+  height: var(--image-height); /* 200px 높이 */
+  background-color: #ccc;
+  border-bottom: 1px solid #eee;
+}
+
+/* 카드 내용 영역 */
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  font-size: 1.3em;
+  color: var(--text-title-color);
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  font-size: 0.9em;
+  color: var(--text-description-color);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* 카드 하단 (가격, 버튼) */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.card-footer span {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--text-title-color);
+}
+
+.card-footer button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.card-footer button:hover {
+  background-color: var(--button-hover-color);
+}
